@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/linearLayout"
     tools:context="com.example.nathan_mccauslin.calculatorapp.MainActivity">
 
     <LinearLayout
@@ -13,7 +14,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
+        android:textSize="50dp"
         android:id="@+id/display"
         />
     </LinearLayout>

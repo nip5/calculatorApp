@@ -1,9 +1,12 @@
 package com.example.nathan_mccauslin.calculatorapp;
 
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,6 +17,7 @@ import bsh.EvalError;
 import bsh.Interpreter;
 
 public class MainActivity extends AppCompatActivity {
+    private double lastNum;
     private Button one;
     private Button two;
     private Button three;
@@ -29,7 +33,16 @@ public class MainActivity extends AppCompatActivity {
     private Button modulous;
     private Button ans;
     private Button add;
+    private Button multiply;
+    private Button divide;
+    private Button subtract;
+    private Button decimal;
+    private Button square;
+    private Button root;
+    private Button history;
     private TextView display;
+    private boolean isNegative = false;
+    private LinearLayout layout;
     private String displayStr = "";
 
     @Override
@@ -38,6 +51,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         onClickListenerButton();
         display = (TextView) findViewById(R.id.display);
+        layout = (LinearLayout) findViewById(R.id.linearLayout);
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+        //check orientation of screen
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            layout.setOrientation(LinearLayout.HORIZONTAL);
+        }
+        else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            layout.setOrientation(LinearLayout.VERTICAL);
+        }
+
     }
     public void onClickListenerButton() {
         one = (Button) findViewById(R.id.one);
@@ -55,6 +81,13 @@ public class MainActivity extends AppCompatActivity {
         modulous = (Button) findViewById(R.id.modulus);
         ans = (Button) findViewById(R.id.equals);
         add = (Button) findViewById(R.id.addition);
+        subtract = (Button) findViewById(R.id.subtraction);
+        divide = (Button) findViewById(R.id.division);
+        multiply = (Button) findViewById(R.id.multiplication);
+        square = (Button) findViewById(R.id.square);
+        root = (Button) findViewById(R.id.squareRoot);
+        decimal = (Button) findViewById(R.id.decimalPnt);
+        history = (Button) findViewById(R.id.history);
         one.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -147,7 +180,14 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        displayStr = "-" + displayStr;
+                        if(!isNegative) {
+                            displayStr = "-" + displayStr;
+                            isNegative = true;
+                        }
+                        else{
+                            displayStr = displayStr.substring(1);
+                            isNegative = false;
+                        }
                         display.setText(displayStr);
                     }
                 });
@@ -165,6 +205,63 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         displayStr += "+";
                         display.setText(displayStr);
+                    }
+                });
+        subtract.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        displayStr += "-";
+                        display.setText(displayStr);
+                    }
+                });
+        multiply.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        displayStr += "*";
+                        display.setText(displayStr);
+                    }
+                });
+        divide.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        displayStr += "/";
+                        display.setText(displayStr);
+                    }
+                });
+        decimal.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        displayStr += ".";
+                        display.setText(displayStr);
+                    }
+                });
+        square.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        lastNum = Double.parseDouble(displayStr);
+                        displayStr = "Math.pow(" + lastNum + ",2)";
+                        display.setText(displayStr);
+                    }
+                });
+        root.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        lastNum = Double.parseDouble(displayStr);
+                        displayStr = "Math.sqrt(" + lastNum + ",2)";
+                        display.setText(displayStr);
+                    }
+                });
+        history.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, History.class));
                     }
                 });
         ans.setOnClickListener(
