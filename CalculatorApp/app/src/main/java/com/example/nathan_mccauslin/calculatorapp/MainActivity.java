@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout layout;
     private String displayStr = "";
     private String historyText = "";
+    public Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         root = (Button) findViewById(R.id.squareRoot);
         decimal = (Button) findViewById(R.id.decimalPnt);
         history = (Button) findViewById(R.id.history);
+
         one.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -260,7 +262,9 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(MainActivity.this, History.class));
+                        Intent intent = new Intent(getApplicationContext(), History.class);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
                     }
                 });
         ans.setOnClickListener(
@@ -278,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         display.setText(displayStr);
                         historyText += " = " + displayStr + "\n";
+                        bundle.putString("history", historyText);
                         historyTxt.setText(historyText);
                     }
                 });
