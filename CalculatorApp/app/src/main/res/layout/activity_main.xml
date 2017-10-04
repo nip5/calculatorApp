@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,50 +9,50 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="50dp"
         android:id="@+id/displayLay">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
-        android:textSize="50dp"
+        android:textSize="40dp"
         android:id="@+id/display"
         android:layout_weight="1" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"
         android:weightSum="20">
         <Button
             android:layout_width="100dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="History"
             android:id="@+id/history"
             android:layout_weight="10"
             />
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="x²"
             android:id="@+id/square"
             android:layout_weight="5"
             />
-
         <Button
             android:id="@+id/squareRoot"
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:layout_weight="5"
             android:text="√" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:weightSum="20"
         android:background="@color/colorPrimaryDark">
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="C"
             android:id="@+id/reset"
             android:textColor="@color/colorAccent"
@@ -61,21 +60,21 @@
             />
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="+/-"
             android:id="@+id/negate"
             android:layout_weight="5"
             />
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="%"
             android:id="@+id/modulus"
             android:layout_weight="5"
             />
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="/"
             android:id="@+id/division"
             android:layout_weight="5"
@@ -84,32 +83,32 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:weightSum="4"
         android:background="@color/colorPrimaryDark">
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="7"
             android:id="@+id/seven"
             android:layout_weight="1" />
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="8"
             android:id="@+id/eight"
             android:layout_weight="1"
             />
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="9"
             android:id="@+id/nine"
             android:layout_weight="1"
             />
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="*"
             android:id="@+id/multiplication"
             android:layout_weight="1"
@@ -117,12 +116,12 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:weightSum="4"
         android:background="@color/colorPrimaryDark">
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="4"
             android:id="@+id/four"
             android:layout_weight="1"
@@ -130,21 +129,21 @@
 
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="5"
             android:id="@+id/five"
             android:layout_weight="1"
             />
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="6"
             android:id="@+id/six"
             android:layout_weight="1"
             />
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="-"
             android:id="@+id/subtraction"
             android:layout_weight="1"/>
@@ -152,19 +151,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:weightSum="4"
         android:background="@color/colorPrimaryDark">
         <Button
             android:id="@+id/one"
             android:layout_width="50dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:text="1" />
 
         <Button
         android:layout_width="50dp"
-        android:layout_height="80dp"
+        android:layout_height="40dp"
         android:text="2"
         android:id="@+id/two"
         android:layout_weight="1" />
@@ -172,13 +171,13 @@
         <Button
             android:id="@+id/three"
             android:layout_width="50dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:text="3" />
 
         <Button
         android:layout_width="50dp"
-        android:layout_height="80dp"
+        android:layout_height="40dp"
         android:text="+"
         android:id="@+id/addition"
         android:layout_weight="1"
@@ -186,13 +185,14 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:weightSum="20"
+        android:background="@color/colorPrimaryDark"
         >
 
         <Button
             android:layout_width="100dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="0"
             android:id="@+id/zero"
             android:layout_weight="10"
@@ -201,17 +201,27 @@
         <Button
             android:id="@+id/decimalPnt"
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="."
             android:layout_weight="5"/>
 
         <Button
             android:layout_width="88dp"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:text="="
             android:id="@+id/equals"
             android:layout_weight="5"
              />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text=""
+            android:textSize="20dp"
+            android:id="@+id/historyTxt"/>
     </LinearLayout>
 
 

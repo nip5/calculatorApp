@@ -8,11 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import bsh.EvalError;
 import bsh.Interpreter;
@@ -42,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
     private Button root;
     private Button history;
     private TextView display;
+    private TextView historyTxt;
     private boolean isNegative = false;
     private LinearLayout layout;
     private String displayStr = "";
+    private String historyText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         onClickListenerButton();
         display = (TextView) findViewById(R.id.display);
+        historyTxt = (TextView) findViewById(R.id.historyTxt);
         layout = (LinearLayout) findViewById(R.id.displayLay);
     }
     @Override
@@ -59,13 +57,11 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         //check orientation of screen
         if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
-            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) layout.getLayoutParams();
-            params.height = 20;
+            startActivity(new Intent(MainActivity.this, History.class));
         }
         else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             layout.setOrientation(LinearLayout.VERTICAL);
         }
-
     }
     public void onClickListenerButton() {
         one = (Button) findViewById(R.id.one);
@@ -271,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        historyText += displayStr;
                         Interpreter interpreter = new Interpreter();
                         try {
                             interpreter.eval("result = " + displayStr);
@@ -280,6 +277,8 @@ public class MainActivity extends AppCompatActivity {
                             displayStr = "err";
                         }
                         display.setText(displayStr);
+                        historyText += " = " + displayStr + "\n";
+                        historyTxt.setText(historyText);
                     }
                 });
     }
