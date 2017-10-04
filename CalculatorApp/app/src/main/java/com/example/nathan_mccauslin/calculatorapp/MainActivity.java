@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         displayStr += "1";
                         display.setText(displayStr);
-
                     }
                 });
         two.setOnClickListener(
@@ -254,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         lastNum = Double.parseDouble(displayStr);
-                        displayStr = "Math.sqrt(" + lastNum + ",2)";
+                        displayStr = "Math.sqrt(" + lastNum + ")";
                         display.setText(displayStr);
                     }
                 });
@@ -272,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         historyText += displayStr;
+                        System.out.println("historyText: " + historyText);
                         Interpreter interpreter = new Interpreter();
                         try {
                             interpreter.eval("result = " + displayStr);
@@ -283,6 +283,7 @@ public class MainActivity extends AppCompatActivity {
                         display.setText(displayStr);
                         historyText += " = " + displayStr + "\n";
                         bundle.putString("history", historyText);
+                        System.out.println("historyText: " + historyText);
                         historyTxt.setText(historyText);
                     }
                 });
