@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,14 +52,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         onClickListenerButton();
         display = (TextView) findViewById(R.id.display);
-        layout = (LinearLayout) findViewById(R.id.linearLayout);
+        layout = (LinearLayout) findViewById(R.id.displayLay);
     }
     @Override
     public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);
         //check orientation of screen
         if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
-            layout.setOrientation(LinearLayout.HORIZONTAL);
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) layout.getLayoutParams();
+            params.height = 20;
         }
         else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             layout.setOrientation(LinearLayout.VERTICAL);
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         displayStr += "1";
                         display.setText(displayStr);
+
                     }
                 });
         two.setOnClickListener(

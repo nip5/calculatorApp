@@ -9,80 +9,84 @@
     tools:context="com.example.nathan_mccauslin.calculatorapp.MainActivity">
 
     <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="85dp">
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:id="@+id/displayLay">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@color/colorPrimaryDark"
         android:textSize="50dp"
         android:id="@+id/display"
-        />
+        android:layout_weight="1" />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:weightSum="14">
+        android:weightSum="20">
         <Button
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:text="History"
             android:id="@+id/history"
-            android:layout_weight="12"
+            android:layout_weight="10"
             />
         <Button
             android:layout_width="88dp"
             android:layout_height="80dp"
             android:text="x²"
             android:id="@+id/square"
-            android:layout_weight="1"
+            android:layout_weight="5"
             />
+
         <Button
+            android:id="@+id/squareRoot"
             android:layout_width="88dp"
             android:layout_height="80dp"
-            android:text="√"
-            android:id="@+id/squareRoot"
-            android:layout_weight="1"
-            />
+            android:layout_weight="5"
+            android:text="√" />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:weightSum="4">
+        android:weightSum="20"
+        android:background="@color/colorPrimaryDark">
         <Button
             android:layout_width="88dp"
             android:layout_height="80dp"
             android:text="C"
             android:id="@+id/reset"
-            android:layout_weight="1"
+            android:textColor="@color/colorAccent"
+            android:layout_weight="5"
             />
         <Button
             android:layout_width="88dp"
             android:layout_height="80dp"
             android:text="+/-"
             android:id="@+id/negate"
-            android:layout_weight="1"
+            android:layout_weight="5"
             />
         <Button
             android:layout_width="88dp"
             android:layout_height="80dp"
             android:text="%"
             android:id="@+id/modulus"
-            android:layout_weight="1"
+            android:layout_weight="5"
             />
         <Button
             android:layout_width="88dp"
             android:layout_height="80dp"
             android:text="/"
             android:id="@+id/division"
-            android:layout_weight="1"
+            android:layout_weight="5"
             />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:weightSum="4">
+        android:weightSum="4"
+        android:background="@color/colorPrimaryDark">
         <Button
             android:layout_width="88dp"
             android:layout_height="80dp"
@@ -112,9 +116,10 @@
             />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:weightSum="4">
+        android:weightSum="4"
+        android:background="@color/colorPrimaryDark">
         <Button
             android:layout_width="88dp"
             android:layout_height="80dp"
@@ -146,9 +151,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:weightSum="4">
+        android:weightSum="4"
+        android:background="@color/colorPrimaryDark">
         <Button
             android:id="@+id/one"
             android:layout_width="50dp"
@@ -179,16 +185,17 @@
          />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:weightSum="16">
+        android:weightSum="20"
+        >
 
         <Button
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:text="0"
             android:id="@+id/zero"
-            android:layout_weight="14"
+            android:layout_weight="10"
              />
 
         <Button
@@ -196,14 +203,14 @@
             android:layout_width="88dp"
             android:layout_height="80dp"
             android:text="."
-            android:layout_weight="1"/>
+            android:layout_weight="5"/>
 
         <Button
             android:layout_width="88dp"
             android:layout_height="80dp"
             android:text="="
             android:id="@+id/equals"
-            android:layout_weight="1"
+            android:layout_weight="5"
              />
     </LinearLayout>
 
